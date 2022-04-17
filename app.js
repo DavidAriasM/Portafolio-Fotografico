@@ -18,6 +18,7 @@ window.addEventListener('load', preloader());
 function preloader() {
     setTimeout(function() {
         contenedor.style.display = 'flex';
+        preloaderSvg.style.display = 'none'
         if (contadorSeccion === 0) btnAnterior.style.display = 'none';
     }, 2000)
 }
