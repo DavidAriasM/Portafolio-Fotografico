@@ -10,10 +10,12 @@ let nav = document.querySelector('.nav');
 let enlaceMenu = document.querySelectorAll('.lista-menu a[href^="#"]');
 let preloaderSvg = document.querySelector('.preloader');
 
-contenedor.style.display = 'none'
+contenedor.style.display = 'none';
 let contadorSeccion = 0;
 
 window.addEventListener('load', preloader())
+
+window.onresize = function() { window.innerWidth > 990 ? footer.style.display = 'block' : footer.style.display = 'none'; }
 
 function preloader() {
     setTimeout(function() {
@@ -24,40 +26,38 @@ function preloader() {
 
 function siguienteSeccion() {
     contadorSeccion++;
-    if (window.innerWidth > 990) {
-        if (contadorSeccion >= 0 && contadorSeccion < secciones.length) {
-            btnAnterior.style.display = 'flex'
-            contenedor.style.transform = `translateX(-${contadorSeccion}00%)`;
-            header.style.transform = `translateX(${contadorSeccion}00%)`;
-            footer.style.transform = `translateX(${contadorSeccion}00%)`;
-        }
-        if (contadorSeccion === secciones.length - 1) btnSiguiente.style.display = 'none';
-    } else {
-        if (contadorSeccion >= 0 && contadorSeccion < secciones.length) {
-            btnAnterior.style.display = 'flex'
-            location.href = `#seccion${ contadorSeccion + 1 }`;
-        }
-        if (contadorSeccion === secciones.length - 1) btnSiguiente.style.display = 'none'
+    footer.style.display = 'block';
+    if (contadorSeccion >= 0 && contadorSeccion < secciones.length) {
+        btnAnterior.style.display = 'flex'
+        contenedor.style.transform = `translateX(-${contadorSeccion}00%)`;
+        header.style.transform = `translateX(${contadorSeccion}00%)`;
+        footer.style.transform = `translateX(${contadorSeccion}00%)`;
     }
+    if (contadorSeccion === secciones.length - 1) btnSiguiente.style.display = 'none';
+    /*if (contadorSeccion >= 0 && contadorSeccion < secciones.length) {
+        btnAnterior.style.display = 'flex'
+        location.href = `#seccion${ contadorSeccion + 1 }`;
+    }
+    if (contadorSeccion === secciones.length - 1) btnSiguiente.style.display = 'none'*/
 }
 
 function anteriorSeccion() {
     contadorSeccion--;
-    if (window.innerWidth > 990) {
-        if (contadorSeccion <= secciones.length - 1 && contadorSeccion >= 0) {
-            btnSiguiente.style.display = 'flex'
-            contenedor.style.transform = `translateX(-${contadorSeccion}00%)`
-            header.style.transform = `translateX(${contadorSeccion}00%)`;
-            footer.style.transform = `translateX(${contadorSeccion}00%)`;
-        }
-        if (contadorSeccion === 0) btnAnterior.style.display = 'none';
-    } else {
-        if (contadorSeccion < secciones.length && contadorSeccion >= 0) {
-            btnSiguiente.style.display = 'flex'
-            location.href = `#seccion${ contadorSeccion + 1 }`;
-        }
-        if (contadorSeccion === 0) btnAnterior.style.display = 'none';
+    footer.style.display = 'block';
+    if (contadorSeccion <= secciones.length - 1 && contadorSeccion >= 0) {
+        btnSiguiente.style.display = 'flex'
+        contenedor.style.transform = `translateX(-${contadorSeccion}00%)`
+        header.style.transform = `translateX(${contadorSeccion}00%)`;
+        footer.style.transform = `translateX(${contadorSeccion}00%)`;
     }
+    if (contadorSeccion === 0) btnAnterior.style.display = 'none';
+
+    /*if (contadorSeccion < secciones.length && contadorSeccion >= 0) {
+        btnSiguiente.style.display = 'flex'
+        location.href = `#seccion${ contadorSeccion + 1 }`;
+    }
+    if (contadorSeccion === 0) btnAnterior.style.display = 'none';*/
+
 }
 
 btnMemu.addEventListener('click', function() {
@@ -67,12 +67,10 @@ btnMemu.addEventListener('click', function() {
 
 btnCerrarMenu.addEventListener('click', function() {
     nav.style.display = 'none';
-    footer.style.display = 'block'
 });
 
 enlaceMenu.forEach(enlace => {
     enlace.addEventListener('click', function() {
         nav.style.display = 'none';
-        footer.style.display = 'block';
     });
 });

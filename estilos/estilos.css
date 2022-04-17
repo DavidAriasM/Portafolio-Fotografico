@@ -48,9 +48,9 @@ html {
         position: absolute;
         display: flex;
         flex-direction: column;
-        transform: none !important;
     }
     .header {
+        position: fixed;
         justify-content: space-around;
     }
     #btn-menu {
@@ -63,5 +63,8 @@ html {
         grid-template-columns: repeat(2, 1fr);
         grid-auto-rows: 200px;
         grid-auto-columns: 200px;
+    }
+    .header {
+        position: fixed;
     }
 }
