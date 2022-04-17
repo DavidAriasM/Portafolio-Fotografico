@@ -15,7 +15,14 @@ let contadorSeccion = 0;
 
 window.addEventListener('load', preloader())
 
-window.onresize = function() { window.innerWidth > 990 ? footer.style.display = 'block' : footer.style.display = 'none'; }
+window.onresize = function() {
+    if (window.innerWidth >= 990) {
+        footer.style.display = 'block';
+    } else {
+        footer.style.display = 'none';
+        header.classList.add('fijo')
+    }
+}
 
 function preloader() {
     setTimeout(function() {
