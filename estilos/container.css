@@ -47,7 +47,7 @@
     grid-auto-rows: 300px;
     grid-auto-columns: 300px;
     gap: 5px;
-    padding: 10px;
+    padding: 50px;
 }
 
 .item__galeria {
@@ -70,7 +70,7 @@
     font-weight: lighter;
 }
 
-@media (max-height:700px) {
+@media (max-height:990px) and (orientation: portrait) {
     #seccion1,
     #seccion2,
     #seccion3,
