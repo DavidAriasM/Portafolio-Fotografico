@@ -63,7 +63,7 @@
     grid-auto-rows: 300px;
     grid-auto-columns: 300px;
     gap: 5px;
-    padding: 100px;
+    padding: 100px 0px 100px 0px;
 }
 
 .item__galeria {
@@ -80,7 +80,7 @@
 
 .content img:hover {
     /* transform: scale(1.05); */
-    /* opacity: .5; */
+    opacity: .5;
 }
 
 .titulo-seccion {
