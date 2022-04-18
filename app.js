@@ -9,6 +9,7 @@ let btnCerrarMenu = document.querySelector('#btn-cerrar-menu');
 let nav = document.querySelector('.nav');
 let enlaceMenu = document.querySelectorAll('.lista-menu a[href^="#"]');
 let preloaderSvg = document.querySelector('.preloader');
+let lightbox = document.querySelector('.lightbox');
 
 contenedor.style.display = 'none';
 let contadorSeccion = 0;
@@ -31,6 +32,7 @@ function siguienteSeccion() {
         contenedor.style.transform = `translateX(-${contadorSeccion}00%)`;
         header.style.transform = `translateX(${contadorSeccion}00%)`;
         footer.style.transform = `translateX(${contadorSeccion}00%)`;
+        lightbox.style.transform = `translateX(${contadorSeccion}00%)`;
     }
     if (contadorSeccion === secciones.length - 1) btnSiguiente.style.display = 'none';
     /*if (contadorSeccion >= 0 && contadorSeccion < secciones.length) {
@@ -48,6 +50,7 @@ function anteriorSeccion() {
         contenedor.style.transform = `translateX(-${contadorSeccion}00%)`
         header.style.transform = `translateX(${contadorSeccion}00%)`;
         footer.style.transform = `translateX(${contadorSeccion}00%)`;
+        lightbox.style.transform = `translateX(${contadorSeccion}00%)`;
     }
     if (contadorSeccion === 0) btnAnterior.style.display = 'none';
 

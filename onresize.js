@@ -1,4 +1,4 @@
-let header = document.querySelector('.header');
+let header = document.querySelector('header');
 let footer = document.querySelector('footer');
 
 window.onresize = function() {
@@ -6,6 +6,6 @@ window.onresize = function() {
         footer.style.display = 'block';
     } else {
         footer.style.display = 'none';
-        header.classList.add('fijo')
+        header.classList.add('fijo');
     }
 }
