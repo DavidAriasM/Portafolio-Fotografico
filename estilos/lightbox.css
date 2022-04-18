@@ -27,9 +27,11 @@
 }
 
 .lightbox img {
-    width: 90%;
+    width: 100%;
+    height: 80%;
     max-width: 400px;
     border: 5px solid #fff;
+    object-fit: cover;
 }
 
 .btn-cerrar-lightbox {

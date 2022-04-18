@@ -42,13 +42,20 @@ html {
     justify-content: center;
     align-items: center;
     transition: all .5s ease;
+    z-index: 1;
+}
+
+.icono-instagram {
+    text-decoration: none;
+    color: #545454;
+    margin: 20px;
 }
 
 .fijo {
     position: fixed;
 }
 
-@media (min-width:1300px) {
+@media (min-width:991px) {
     .content {
         grid-template-columns: repeat(4, 1fr);
         grid-auto-rows: 500px;
@@ -80,7 +87,18 @@ html {
     }
 }
 
-@media (max-width:650px) {
+@media (max-width:650px) and (orientation: portrait) {
+    .content {
+        grid-template-columns: repeat(1, 1fr);
+        grid-auto-rows: 400px;
+        grid-auto-columns: 400px;
+    }
+    .header {
+        position: fixed;
+    }
+}
+
+@media (max-height:650px) and (max-width:650px) and (orientation: landscape) {
     .content {
         grid-template-columns: repeat(1, 1fr);
         grid-auto-rows: 400px;
