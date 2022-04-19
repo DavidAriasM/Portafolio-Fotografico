@@ -8,7 +8,7 @@
     position: fixed;
     display: none;
     margin-top: -50px;
-    z-index: 100000;
+    z-index: 2;
 }
 
 #btn-cerrar-menu {
@@ -37,10 +37,16 @@
 .lista-menu li {
     width: 80%;
     list-style: none;
+    transition: all .3s ease;
 }
 
 .lista-menu li a {
     color: #fff;
     text-decoration: none;
     list-style: none;
+}
+
+.lista-menu li:hover {
+    font-weight: bold;
+    font-size: 20px;
 }
