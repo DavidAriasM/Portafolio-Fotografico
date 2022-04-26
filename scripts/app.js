@@ -10,6 +10,7 @@ let nav = document.querySelector('.nav');
 let enlaceMenu = document.querySelectorAll('.lista-menu a[href^="#"]');
 let preloaderSvg = document.querySelector('.preloader');
 let lightbox = document.querySelector('.lightbox');
+let contadorPaginas = document.querySelector('.contador-paginas')
 
 contenedor.style.display = 'none';
 let contadorSeccion = 0;
@@ -33,13 +34,13 @@ function siguienteSeccion() {
         header.style.transform = `translateX(${contadorSeccion}00%)`;
         footer.style.transform = `translateX(${contadorSeccion}00%)`;
         lightbox.style.transform = `translateX(${contadorSeccion}00%)`;
+        contadorPaginas.style.display = 'block';
+        contadorPaginas.textContent = contadorSeccion + 1 + '/' + secciones.length;
     }
-    if (contadorSeccion === secciones.length - 1) btnSiguiente.style.display = 'none';
-    /*if (contadorSeccion >= 0 && contadorSeccion < secciones.length) {
-        btnAnterior.style.display = 'flex'
-        location.href = `#seccion${ contadorSeccion + 1 }`;
+    if (contadorSeccion === secciones.length - 1) {
+        btnSiguiente.style.display = 'none';
+        contadorPaginas.style.display = 'none';
     }
-    if (contadorSeccion === secciones.length - 1) btnSiguiente.style.display = 'none'*/
 }
 
 function anteriorSeccion() {
@@ -51,15 +52,13 @@ function anteriorSeccion() {
         header.style.transform = `translateX(${contadorSeccion}00%)`;
         footer.style.transform = `translateX(${contadorSeccion}00%)`;
         lightbox.style.transform = `translateX(${contadorSeccion}00%)`;
+        contadorPaginas.style.display = 'block';
+        contadorPaginas.textContent = contadorSeccion + 1 + '/' + secciones.length;
     }
-    if (contadorSeccion === 0) btnAnterior.style.display = 'none';
-
-    /*if (contadorSeccion < secciones.length && contadorSeccion >= 0) {
-        btnSiguiente.style.display = 'flex'
-        location.href = `#seccion${ contadorSeccion + 1 }`;
+    if (contadorSeccion === 0) {
+        btnAnterior.style.display = 'none';
+        contadorPaginas.style.display = 'none'
     }
-    if (contadorSeccion === 0) btnAnterior.style.display = 'none';*/
-
 }
 
 btnMemu.addEventListener('click', function() {
@@ -76,3 +75,14 @@ enlaceMenu.forEach(enlace => {
         nav.style.display = 'none';
     });
 });
+
+document.onkeydown = function(e) {
+    switch (e.keyCode) {
+        case 37:
+            anteriorSeccion()
+            break;
+        case 39:
+            siguienteSeccion()
+            break;
+    }
+};

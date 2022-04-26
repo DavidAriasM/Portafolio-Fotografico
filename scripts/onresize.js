@@ -1,11 +1,11 @@
-let header = document.querySelector('header');
-let footer = document.querySelector('footer');
+let headerMenu = document.querySelector('header');
+let footerMenu = document.querySelector('footer');
 
 window.onresize = function() {
     if (window.innerWidth >= 990) {
-        footer.style.display = 'block';
+        footerMenu.style.display = 'block';
     } else {
-        footer.style.display = 'none';
-        header.classList.add('fijo');
+        footerMenu.style.display = 'none';
+        headerMenu.classList.add('fijo');
     }
 }

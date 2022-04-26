@@ -39,3 +39,7 @@ footer {
 .btn-control svg {
     line-height: 100px;
 }
+
+.contador-paginas {
+    display: none;
+}
